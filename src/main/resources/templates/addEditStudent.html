@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+
+    <form th:object="${beanStudent}" th:method="POST" th:action="@{/addEditStudent}">
+         <input type="hidden" th:field="*{uuid}"/>
+        <h1 id="">Add Student</h1>
+        <div>Name <input type="text" th:field="*{name}" required="required"/></div>
+        <div>Age <input type="number" th:field="*{age}"  required="required" /></div>
+        <div>Marks <input type="number"  th:field="*{marks}"  required="required" /></div>
+        <div><button>Submit</button></div>
+
+    </form>
+    <h4 th:text="${message}"></h4>
+</div>
+</body>
+</html>

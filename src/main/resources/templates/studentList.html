@@ -1,0 +1,46 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Student List</h2>
+
+<a style="float:right" th:href="@{/addStudent}">Add Student</a>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Age </th>
+        <th>Marks</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="student : ${studentList}">
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.age}"></td>
+        <td th:text="${student.marks}"></td>
+        <td>
+            <a th:href="@{/editStudent/} + ${student.uuid}">Edit</a>
+            <a th:href="@{/deleteStudent/} + ${student.uuid}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
